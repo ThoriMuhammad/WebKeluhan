@@ -68,12 +68,12 @@
   <div class="sidebar sidebar-light">
   <p class="fs-3 fw-bolder">Menu</p>
   <ul class="nav flex-column">
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">
         <span class="fas fa-plus mr-2"></span>
         Profil
       </a>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" href="{{ url('keluhan') }}">
         <span class="fas fa-plus mr-2"></span>

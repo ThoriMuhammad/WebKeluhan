@@ -42,7 +42,7 @@
                       <td>{{ $keluhan->TKP}}</td>
                       <td>{{ $keluhan->saran}}</td>
                       <td>{{ $keluhan->Tanggal_Keluhan}}</td>
-                      <td>{{ $keluhan->Dokumentasi}}</td>
+                      <td><img src="/img/{{ $keluhan->name_file}} " width="40%" alt=""></td>
                       <td><form action="{{ route('edit.keluhan', $keluhan->id) }}" method="GET" class="d-inline">
                         <button type="submit" class="btn btn-success btn-sm">
                           Ubah

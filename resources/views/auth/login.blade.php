@@ -23,6 +23,7 @@
                 <label class="form-label">Password</label>
             </div>
             <button type="submit" class="form-button">Sign in</button>
+        <p><a href="{{ route('register') }}">Belum punya akun? Register</a></p>
         </form>
     </div>
 </body>

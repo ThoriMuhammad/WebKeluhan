@@ -32,6 +32,8 @@
                 <label class="form-label">Konfirmasi Password</label>
             </div>
             <button type="submit" class="form-button">Sign up</button>
+            <p><a href="{{ route('login') }}">Sudah punya akun? Login</a></p>
+
         </form>
     </div>
 </body>

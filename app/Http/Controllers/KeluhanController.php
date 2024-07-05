@@ -81,7 +81,7 @@ class KeluhanController extends Controller
     $keluhan = Keluhan::findOrFail($id)->first();
     $keluhan->update($request->all());
 
-    return redirect()->route('keluhans.index')->with('success', 'Keluhan updated successfully.');
+    return redirect()->route('index.keluhan')->with('success', 'Keluhan updated successfully.');
 }
 
     /**
