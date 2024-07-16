@@ -85,8 +85,8 @@
                   <th scope="col">Status</th>
                 </tr>
               
-              </thead>
-  <tbody>
+              </thead >
+  <tbody id="keluhan-container">
                     @foreach($data as $keluhan)
                     <tr>
                       <th scope="row">{{ $loop->iteration }}</th>
@@ -109,11 +109,16 @@
                         </form>
                         </td>
                         <td>{{ $keluhan->Dokumentasi}}</td>
-                        <td><select class="form-select" aria-label="Default select example">
-                        <option selected>Segera Ditanggapi</option>
-                        <option value="belum">Segera Ditanggapi</option>
-                        <option value="sudah">Selesai Ditanggapi</option>
-                        </select></td>
+                        <td>
+                      <form action="{{ route('update.status', $keluhan->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <select name="status" class="form-select" aria-label="Default select example" onchange="this.form.submit()">
+                          <option value="Segera Ditanggapi" {{ $keluhan->status == 'Segera Ditanggapi' ? 'selected' : '' }}>Segera Ditanggapi</option>
+                          <option value="Selesai Ditanggapi" {{ $keluhan->status == 'Selesai Ditanggapi' ? 'selected' : '' }}>Selesai Ditanggapi</option>
+                        </select>
+                      </form>
+                    </td>
                         
                     </tr>
                     @endforeach
@@ -125,5 +130,50 @@
     </div>
   </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'https://gist.githubusercontent.com/ThoriMuhammad/ef5fa4af7a91d203fcbaf69c01c03653/raw/1a19b16a83459da2995c01fc5a5d0ec413030ac4/keluhan.json',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var keluhanContainer = $('#keluhan-container');
+                    $.each(data, function(index, keluhan) {
+                        var keluhanHtml = '<tr>' +
+                            '<th scope="row">' + (index + 1) + '</th>' +
+                            '<td class="table-secondary">' + keluhan.keluhan + '</td>' +
+                            '<td>' + keluhan.TKP + '</td>' +
+                            '<td>' + keluhan.saran + '</td>' +
+                            '<td class="col-3">' + keluhan.Tanggal_Keluhan + '</td>' +
+                            '<td>' + keluhan.name_file + '</td>' +
+                            '<td>' +
+                            '<form action="/edit/keluhan/' + keluhan.id + '" method="GET" class="d-inline">' +
+                            '<button type="submit" class="btn btn-success btn-sm">Ubah</button>' +
+                            '</form>|' +
+                            '<form action="/keluhan/' + keluhan.id + '" method="POST" class="d-inline">' +
+                            '@csrf @method("DELETE")' +
+                            '<button type="submit" class="btn btn-danger btn-sm">Hapus</button>' +
+                            '</form>' +
+                            '</td>' +
+                            '<td> </td>' +
+                            '<td>' +
+                            '<select class="form-select" aria-label="Default select example">' +
+                            '<option selected>Segera Ditanggapi</option>' +
+                            '<option value="belum">Segera Ditanggapi</option>' +
+                            '<option value="sudah">Selesai Ditanggapi</option>' +
+                            '</select>' +
+                            '</td>' +
+                            '</tr>';
+                        keluhanContainer.append(keluhanHtml);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+    </script>
   </body>
+
 </html>

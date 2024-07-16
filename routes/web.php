@@ -21,6 +21,8 @@ Route::get('/ubah-keluhan/{id}', [KeluhanController::class, 'edit'])->name('edit
 Route::put('/update-keluhan/{id}', [KeluhanController::class, 'update'])->name('keluhans.update');
 Route::delete('/delete-keluhan/{id}', [KeluhanController::class, 'destroy'])->name('keluhan.destroy');
 Route::get('/dashboard-admin', [KeluhanController::class, 'dashboardAdmin'])->name('dashboard.admin');
+Route::patch('/update-status/{id}', [KeluhanController::class, 'updateStatus'])->name('update.status');
+
 
 });
 

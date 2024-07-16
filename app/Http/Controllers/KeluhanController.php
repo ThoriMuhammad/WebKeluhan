@@ -69,16 +69,16 @@ class KeluhanController extends Controller
      */
     public function update(Request $request, $id)
 {
-    $keluhan->update($request->all());
+    // $keluhan->update($request->all());
     $request->validate([
         'keluhan' => 'required|string|max:255',
         'TKP' => 'required|string|max:255',
         'saran' => 'required|string|max:255',
         'Tanggal_Keluhan' => 'required|date',
-        'name_file' => 'nullable',
+        'name_file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
-
-    $keluhan = Keluhan::findOrFail($id)->first();
+    
+    $keluhan=Keluhan::findOrFail($id);
     $keluhan->update($request->all());
 
     return redirect()->route('index.keluhan')->with('success', 'Keluhan updated successfully.');
@@ -130,4 +130,16 @@ class KeluhanController extends Controller
 
         return redirect()->route('keluhans.index')->with('success', 'Keluhan updated successfully.');
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $keluhan = Keluhan::find($id);
+        if ($keluhan) {
+            $keluhan->status = $request->status;
+            $keluhan->save();
+            return redirect()->back()->with('success', 'Status berhasil diperbarui');
+        }
+        return redirect()->back()->with('error', 'Keluhan tidak ditemukan');
+    }
+
 }

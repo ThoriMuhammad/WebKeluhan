@@ -48,6 +48,14 @@
     section {
       margin-bottom: 30px;
     }
+    .status-segera {
+      color: red;
+      font-weight:0;
+    }
+    .status-selesai {
+      color: green;
+      font-weight:0;
+    }
   </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
@@ -118,6 +126,7 @@
                   <th scope="col">TKP</th>
                   <th scope="col">Saran</th>
                   <th scope="col">Tanggal Keluhan</th>
+                  <th scope="col">Status</th>
                 </tr>
               
               </thead>
@@ -129,6 +138,9 @@
                       <td>{{ $keluhan->TKP}}</td>
                       <td>{{ $keluhan->saran}}</td>
                       <td class="col-3">{{ $keluhan->Tanggal_Keluhan}}</td>
+                      <td class="{{ $keluhan->status == 'Segera Ditanggapi' ? 'status-segera' : ($keluhan->status == 'Selesai Ditanggapi' ? 'status-selesai' : '') }}">
+                          {{ $keluhan->status }}
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
