@@ -49,13 +49,23 @@
       margin-bottom: 30px;
     }
     .status-segera {
-      color: red;
-      font-weight:0;
-    }
-    .status-selesai {
-      color: green;
-      font-weight:0;
-    }
+    color: white;
+    font-weight: bold;
+    border: 2px solid red;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  .status-selesai {
+    color: white;
+    font-weight: bold;
+    border: 2px solid green;
+    background-color: green;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+  }
   </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>

@@ -19,7 +19,7 @@
   </header>
     <div class="container mt-6">
         <div class="row justify-content-center">
-            <div class="col-10">
+            <div class="col-11">
             <div class="row align-items-center">
               <table border="2" id="data-list"class="table">
               <thead>
@@ -31,6 +31,8 @@
                   <th scope="col">Tanggal Keluhan</th>
                   <th scope="col">Dokumentasi</th>
                   <th scope="col">OPSI</th>
+                  <th scope="col">Dokumentasi Sesudah</th>
+                  <th scope="col">Status</th>
                 </tr>
               
               </thead>
@@ -42,7 +44,7 @@
                       <td>{{ $keluhan->TKP}}</td>
                       <td>{{ $keluhan->saran}}</td>
                       <td>{{ $keluhan->Tanggal_Keluhan}}</td>
-                      <td><img src="/img/{{ $keluhan->name_file}} " width="40%" alt=""></td>
+                      <td><img src="/img/{{ $keluhan->name_file}} " width="80%" alt=""></td>
                       <td><form action="{{ route('edit.keluhan', $keluhan->id) }}" method="GET" class="d-inline">
                         <button type="submit" class="btn btn-success btn-sm">
                           Ubah
@@ -56,7 +58,10 @@
                           </button>
                         </form>
                       </td>
-                        
+                      <td>{{ $keluhan->Dokumentasi}}</td>
+                      <td class="{{ $keluhan->status == 'Segera Ditanggapi' ? 'status-segera' : ($keluhan->status == 'Selesai Ditanggapi' ? 'status-selesai' : '') }}">
+                          {{ $keluhan->status }}
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>

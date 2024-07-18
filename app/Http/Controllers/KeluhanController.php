@@ -115,7 +115,7 @@ class KeluhanController extends Controller
 
     public function updateAdmin(Request $request, $id)
     {
-        $keluhan->update($request->all());
+        // $keluhan->update($request->all());
         $request->validate([
             'keluhan' => 'required|string|max:255',
             'TKP' => 'required|string|max:255',
@@ -128,7 +128,15 @@ class KeluhanController extends Controller
         $keluhan = Keluhan::findOrFail($id)->first();
         $keluhan->update($request->all());
 
-        return redirect()->route('keluhans.index')->with('success', 'Keluhan updated successfully.');
+        return redirect()->route('dashboard.admin')->with('success', 'Keluhan updated successfully.');
+    }
+
+    public function editadmin(Request $request,$id)
+    {
+         $keluhan=Keluhan::findOrFail($id);
+        // dd($keluhan);
+
+         return view('admin/editadmin', compact('keluhan'));
     }
 
     public function updateStatus(Request $request, $id)

@@ -21,6 +21,8 @@ Route::get('/ubah-keluhan/{id}', [KeluhanController::class, 'edit'])->name('edit
 Route::put('/update-keluhan/{id}', [KeluhanController::class, 'update'])->name('keluhans.update');
 Route::delete('/delete-keluhan/{id}', [KeluhanController::class, 'destroy'])->name('keluhan.destroy');
 Route::get('/dashboard-admin', [KeluhanController::class, 'dashboardAdmin'])->name('dashboard.admin');
+Route::put('/update-admin/{id}', [KeluhanController::class, 'updateAdmin'])->name('update.admin');
+Route::get('/ubah-admin/{id}', [KeluhanController::class, 'editadmin'])->name('edit.admin');
 Route::patch('/update-status/{id}', [KeluhanController::class, 'updateStatus'])->name('update.status');
 
 
@@ -34,4 +36,4 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::put('/update-admin/{id}', [KeluhanController::class, 'updateAdmin'])->name('update.admin');
+

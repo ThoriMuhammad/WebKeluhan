@@ -95,7 +95,7 @@
                       <td>{{ $keluhan->saran}}</td>
                       <td class="col-3">{{ $keluhan->Tanggal_Keluhan}}</td>
                       <td>{{ $keluhan->Dokumentasi}}</td>
-                      <td><form action="{{ route('edit.keluhan', $keluhan->id) }}" method="GET" class="d-inline">
+                      <td><form action="{{ route('edit.admin', $keluhan->id) }}" method="GET" class="d-inline">
                         <button type="submit" class="btn btn-success btn-sm">
                           Ubah
                         </button>

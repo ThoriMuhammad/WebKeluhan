@@ -11,19 +11,19 @@
   <form action="{{route('proses.keluhan')}}" >
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Masukan Keluhan</label>
-    <input type="text" class="form-control" name='keluhan' id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control" name='keluhan' style="background-color: #d3d3d3; id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Masukan TKP</label>
-    <input type="text" class="form-control" name='TKP' id="exampleInputPassword1">
+    <input type="text" class="form-control" name='TKP' style="background-color: #d3d3d3; id="exampleInputPassword1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Saran</label>
-    <input type="text" class="form-control" name='saran' id="exampleInputPassword1">
+    <input type="text" class="form-control" name='saran' style="background-color: #d3d3d3; id="exampleInputPassword1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Tanggal Keluhan</label>
-    <input type="date" class="form-control" name='Tanggal_Keluhan' id="exampleInputPassword1">
+    <input type="date" class="form-control" name='Tanggal_Keluhan' style="background-color: #d3d3d3; id="exampleInputPassword1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Dokumentasi</label>
