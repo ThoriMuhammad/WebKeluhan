@@ -29,10 +29,10 @@
     <label for="exampleInputPassword1" class="form-label">Dokumentasi</label>
     <input type="file" class="form-control" name='name_file' id="exampleInputPassword1">
   </div>
-  <div class="mb-3 form-check">
+  <!-- <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  </div> -->
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <div id="notification" class="alert alert-success mt-3 d-none" role="alert">

@@ -58,7 +58,7 @@
                           </button>
                         </form>
                       </td>
-                      <td>{{ $keluhan->Dokumentasi}}</td>
+                      <td><img src="/img/{{ $keluhan->file_after}} " width="80%" alt=""></td>
                       <td class="{{ $keluhan->status == 'Segera Ditanggapi' ? 'status-segera' : ($keluhan->status == 'Selesai Ditanggapi' ? 'status-selesai' : '') }}">
                           {{ $keluhan->status }}
                       </td>

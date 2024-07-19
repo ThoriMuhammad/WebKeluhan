@@ -9,7 +9,7 @@
 <body>
 <div class='container mt-3'>
     <h2>Edit Keluhan</h2>
-    <form action="{{ route('keluhans.update', $keluhan->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('keluhans.update', $keluhan->id) }}" method="post">
         @csrf
         @method('PUT')
         <div class="mb-3">

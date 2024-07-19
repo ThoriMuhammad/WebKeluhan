@@ -9,7 +9,7 @@
 <body>
 <div class='container mt-3'>
     <h2>Edit Keluhan</h2>
-    <form action="{{ route('update.admin', $keluhan->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('update.admin', $keluhan->id) }}" method="post" >
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -34,7 +34,7 @@
         </div>
         <div class="mb-3">
             <label for="name_file" class="form-label">Dokumentasi Sesudah</label>
-            <input type="file" class="form-control" name="name_file" id="name_file" value="{{ $keluhan->name_file }}">
+            <input type="file" class="form-control" name="file_after" id="name_file" value="{{ $keluhan->file_after }}">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

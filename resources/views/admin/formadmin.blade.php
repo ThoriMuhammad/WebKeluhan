@@ -94,7 +94,7 @@
                       <td>{{ $keluhan->TKP}}</td>
                       <td>{{ $keluhan->saran}}</td>
                       <td class="col-3">{{ $keluhan->Tanggal_Keluhan}}</td>
-                      <td>{{ $keluhan->Dokumentasi}}</td>
+                      <td><img src="/img/{{ $keluhan->name_file}} " width="60%" alt=""></td>
                       <td><form action="{{ route('edit.admin', $keluhan->id) }}" method="GET" class="d-inline">
                         <button type="submit" class="btn btn-success btn-sm">
                           Ubah
@@ -108,7 +108,7 @@
                           </button>
                         </form>
                         </td>
-                        <td>{{ $keluhan->Dokumentasi}}</td>
+                        <td><img src="/img/{{ $keluhan->file_after}} " width="60%" alt=""></td>
                         <td>
                       <form action="{{ route('update.status', $keluhan->id) }}" method="POST">
                         @csrf
@@ -134,7 +134,7 @@
     <script>
         $(document).ready(function() {
             $.ajax({
-                url: 'https://gist.githubusercontent.com/ThoriMuhammad/ef5fa4af7a91d203fcbaf69c01c03653/raw/1a19b16a83459da2995c01fc5a5d0ec413030ac4/keluhan.json',
+                url: 'https://gist.githubusercontent.com/ThoriMuhammad/ef5fa4af7a91d203fcbaf69c01c03653/raw/bfaaa2a0e0e036035cafb93187570cfee342bd91/keluhan.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -146,7 +146,7 @@
                             '<td>' + keluhan.TKP + '</td>' +
                             '<td>' + keluhan.saran + '</td>' +
                             '<td class="col-3">' + keluhan.Tanggal_Keluhan + '</td>' +
-                            '<td>' + keluhan.name_file + '</td>' +
+                            '<td> <img src="/img/' + keluhan.name_file + ' " width="60%" alt=""></td>' +
                             '<td>' +
                             '<form action="/edit/keluhan/' + keluhan.id + '" method="GET" class="d-inline">' +
                             '<button type="submit" class="btn btn-success btn-sm">Ubah</button>' +

@@ -75,7 +75,7 @@ class KeluhanController extends Controller
         'TKP' => 'required|string|max:255',
         'saran' => 'required|string|max:255',
         'Tanggal_Keluhan' => 'required|date',
-        'name_file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'name_file' => 'nullable',
     ]);
     
     $keluhan=Keluhan::findOrFail($id);
@@ -122,10 +122,10 @@ class KeluhanController extends Controller
             'saran' => 'required|string|max:255',
             'Tanggal_Keluhan' => 'required|date',
             'name_file' => 'nullable',
-            'name_file' => 'nullable',
+            'file_after' => 'nullable',
         ]);
 
-        $keluhan = Keluhan::findOrFail($id)->first();
+        $keluhan = Keluhan::findOrFail($id);
         $keluhan->update($request->all());
 
         return redirect()->route('dashboard.admin')->with('success', 'Keluhan updated successfully.');

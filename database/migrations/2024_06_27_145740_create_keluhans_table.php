@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('saran');
             $table->date('Tanggal_Keluhan');
             $table->string('name_file');
+            $table->string('file_after')->nullable();
         });
     }
 

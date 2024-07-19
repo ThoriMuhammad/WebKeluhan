@@ -14,6 +14,7 @@ class Keluhan extends Model
         'saran',
         'Tanggal_Keluhan',
         'name_file',
+        'file_after',
         'status',
     ];
 }
