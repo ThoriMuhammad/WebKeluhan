@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2024 at 12:32 PM
+-- Generation Time: Jul 18, 2024 at 03:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -110,17 +110,18 @@ CREATE TABLE `keluhans` (
   `TKP` varchar(255) NOT NULL,
   `saran` varchar(255) NOT NULL,
   `Tanggal_Keluhan` date NOT NULL,
-  `name_file` varchar(255) NOT NULL
+  `name_file` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'Segera Ditanggapi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `keluhans`
 --
 
-INSERT INTO `keluhans` (`id`, `created_at`, `updated_at`, `keluhan`, `TKP`, `saran`, `Tanggal_Keluhan`, `name_file`) VALUES
-(8, '2024-07-04 19:23:20', '2024-07-04 19:23:20', 'irigasi tersumbat', 'dusun mriyunan', 'segera dilakuukan penanganan', '2024-07-05', '11-HL-Enam-Bulan-Saluran-Irigasi-Tersumbat.webp'),
-(9, '2024-07-04 19:38:35', '2024-07-04 19:38:35', 'Terdapat pohon tumbang', 'jl rejodani', 'Segera dibersihkan', '2024-07-05', 'download(1).jpg'),
-(10, '2024-07-04 19:47:46', '2024-07-04 19:47:46', 'kabel putus', 'jl rejodani', 'Segera diatasi agar tidak ganggu', '2024-07-05', 'download(3).jpg');
+INSERT INTO `keluhans` (`id`, `created_at`, `updated_at`, `keluhan`, `TKP`, `saran`, `Tanggal_Keluhan`, `name_file`, `status`) VALUES
+(9, '2024-07-04 19:38:35', '2024-07-18 03:15:36', 'Terdapat pohon tumbang', 'Jalan Kaliurang Km 15', 'Segera dibersihkan', '2024-07-05', 'D:\\XAMPP\\tmp\\php5C03.tmp', 'Selesai Ditanggapi'),
+(11, '2024-07-05 08:22:48', '2024-07-18 03:07:40', 'kabel putus', 'Jalan Magelang Km 5', 'Segera diatasi agar tidak mengganggu', '2024-07-05', 'download(3).jpg', 'Segera Ditanggapi'),
+(12, '2024-07-18 01:51:59', '2024-07-18 01:51:59', 'irigasi tersumbat', 'CondongCatur', 'Segera dibersihkan', '2024-07-10', 'images.jpg', 'Segera Ditanggapi');
 
 -- --------------------------------------------------------
 
@@ -144,7 +145,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (4, '2024_06_27_145740_create_keluhans_table', 1),
 (5, '2024_07_04_053728_add_nik_to_users_table', 2),
-(6, '2024_07_04_055936_create_users_table', 3);
+(6, '2024_07_04_055936_create_users_table', 3),
+(7, '2024_07_16_084248_add_status_to_keluhans_table', 4);
 
 -- --------------------------------------------------------
 
@@ -178,7 +180,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('M5F7TLqYdeUsVcebj77lRPHEzAaCfNYVWq1xokRJ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiWDU1a0h0WlZUbmtrNTA2bFNzUm10M2s3YkZIUG1XYTNpZlZSTGxxSSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoibmlrIjtzOjE2OiIzNDY1MjM0ODc2NTQzNTQyIjt9', 1720148946);
+('jOv52P3IB7iKUfveGdpT6CvpTHBxtzJiG2W2B954', 7, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiQllqQmlsTFgyMlB4dVRiaVdNMUNIMGFWNzNCMkhYa0R4ZHoxTUlTdiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC91YmFoLWtlbHVoYW4vOSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjc7czozOiJuaWsiO3M6MTY6IjIzNDM1Njc4NzY1NDQ1NjciO30=', 1721306274);
 
 -- --------------------------------------------------------
 
@@ -296,13 +298,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `keluhans`
 --
 ALTER TABLE `keluhans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
