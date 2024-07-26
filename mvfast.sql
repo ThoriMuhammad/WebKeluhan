@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2024 at 03:28 PM
+-- Generation Time: Jul 25, 2024 at 03:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -111,6 +111,7 @@ CREATE TABLE `keluhans` (
   `saran` varchar(255) NOT NULL,
   `Tanggal_Keluhan` date NOT NULL,
   `name_file` varchar(255) NOT NULL,
+  `file_after` varchar(255) DEFAULT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'Segera Ditanggapi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -118,10 +119,10 @@ CREATE TABLE `keluhans` (
 -- Dumping data for table `keluhans`
 --
 
-INSERT INTO `keluhans` (`id`, `created_at`, `updated_at`, `keluhan`, `TKP`, `saran`, `Tanggal_Keluhan`, `name_file`, `status`) VALUES
-(9, '2024-07-04 19:38:35', '2024-07-18 03:15:36', 'Terdapat pohon tumbang', 'Jalan Kaliurang Km 15', 'Segera dibersihkan', '2024-07-05', 'D:\\XAMPP\\tmp\\php5C03.tmp', 'Selesai Ditanggapi'),
-(11, '2024-07-05 08:22:48', '2024-07-18 03:07:40', 'kabel putus', 'Jalan Magelang Km 5', 'Segera diatasi agar tidak mengganggu', '2024-07-05', 'download(3).jpg', 'Segera Ditanggapi'),
-(12, '2024-07-18 01:51:59', '2024-07-18 01:51:59', 'irigasi tersumbat', 'CondongCatur', 'Segera dibersihkan', '2024-07-10', 'images.jpg', 'Segera Ditanggapi');
+INSERT INTO `keluhans` (`id`, `created_at`, `updated_at`, `keluhan`, `TKP`, `saran`, `Tanggal_Keluhan`, `name_file`, `file_after`, `status`) VALUES
+(13, '2024-07-18 21:51:02', '2024-07-18 23:04:00', 'Lampu lalu lintas tidak berfungsi', 'Jalan Kaliurang Km 6', 'Segera dilakukan perbaikan', '2024-07-19', 'Lampu lalu lintas.jpg', 'lalu lintas 2.jpg', 'Selesai Ditanggapi'),
+(15, '2024-07-18 23:07:54', '2024-07-19 00:50:28', 'lampu lalin mati', 'jl. seturan raya', 'Segera dilakukan perbaikan', '2024-07-19', 'Pohon tumbang.jpg', 'jalan mulus.jpg', 'Selesai Ditanggapi'),
+(16, '2024-07-18 23:18:10', '2024-07-18 23:18:10', 'Saluran irigasi tersumbat', 'Jl Selokan Mataram', 'Segera dilakukan perbaikan', '2024-07-19', 'saluran mampet.jpg', NULL, 'Segera Ditanggapi');
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('jOv52P3IB7iKUfveGdpT6CvpTHBxtzJiG2W2B954', 7, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiQllqQmlsTFgyMlB4dVRiaVdNMUNIMGFWNzNCMkhYa0R4ZHoxTUlTdiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC91YmFoLWtlbHVoYW4vOSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjc7czozOiJuaWsiO3M6MTY6IjIzNDM1Njc4NzY1NDQ1NjciO30=', 1721306274);
+('5aNht2yOa10iHg9NcXEM6dv8SlSqLYesHJqxQqNT', 6, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiVHREeEQzOE5jUWhuQWdic0RLeWJMZHR1Y255QnU4ejFPSkVyOVFkMiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC91YmFoLWFkbWluLzEzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJuaWsiO3M6NToiYWRtaW4iO3M6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjY7fQ==', 1721898883);
 
 -- --------------------------------------------------------
 
@@ -298,7 +299,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `keluhans`
 --
 ALTER TABLE `keluhans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `migrations`
